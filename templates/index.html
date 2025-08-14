@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Учебная страница по DOM и HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    a {
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <h1>DOM и HTML теги</h1>
+
+  <h2>Ссылки:</h2>
+  <ul>
+    <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element" target="_blank">Документация по HTML тегам (MDN)</a></li>
+  </ul>
+
+  <h2>Основные HTML теги</h2>
+
+  <h3>&lt;html&gt;</h3>
+  <html>
+    <head></head>
+    <body></body>
+  </html>
+
+  <h3>&lt;head&gt;</h3>
+  <head>
+    <title>Название страницы</title>
+  </head>
+
+  <h3>&lt;body&gt;</h3>
+  <body>
+    <h1>Заголовок страницы</h1>
+    <p>Основной текст страницы</p>
+  </body>
+
+  <h3>&lt;div&gt;</h3>
+  <div class="container">
+    <h2>Заголовок блока</h2>
+    <p>Текст внутри блока</p>
+  </div>
+
+  <h3>&lt;h1&gt; - &lt;h6&gt;</h3>
+  <h1>Главный заголовок</h1>
+  <h2>Заголовок второго уровня</h2>
+
+  <h3>&lt;p&gt;</h3>
+  <p>Это текст абзаца.</p>
+
+  <h3>&lt;a&gt;</h3>
+  <a href="https://www.w3schools.com/tags/">Перейти на сайт</a>
+
+  <h3>&lt;img&gt;</h3>
+  <img src="image.jpg" alt="Описание изображения">
+
+  <h3>&lt;ul&gt; и &lt;ol&gt;</h3>
+  <ul>
+    <li>Пункт 1</li>
+    <li>Пункт 2</li>
+  </ul>
+  <ol>
+    <li>Первый пункт</li>
+    <li>Второй пункт</li>
+  </ol>
+
+  <h3>&lt;form&gt;, &lt;input&gt;, &lt;button&gt;</h3>
+  <form action="/submit" method="POST">
+    <input type="text" name="username">
+    <button type="submit">Отправить</button>
+  </form>
+
+  <h3>&lt;table&gt;</h3>
+  <table>
+    <tr>
+      <td>Ячейка 1</td>
+      <td>Ячейка 2</td>
+    </tr>
+  </table>
+
+  <h3>&lt;span&gt;</h3>
+  <span style="color: red;">Красный текст</span>
+
+  <h2>Повторение HTML атрибутов</h2>
+
+  <h3>Ссылки:</h3>
+  <ul>
+    <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML/Attributes" target="_blank">Документация по HTML атрибутам (MDN)</a></li>
+  </ul>
+
+  <h3>Основные атрибуты:</h3>
+
+  <div id="header">Заголовок страницы</div>
+  <p class="text bold">Текст</p>
+  <img src="image.jpg" alt="Описание картинки">
+  <a href="https://www.w3schools.com/tags/ref_attributes.asp" target="_blank">Открыть сайт</a>
+  <input type="text" value="Введите текст" disabled>
+  <input type="password">
+  <input type="submit" value="Отправить">
+
+  <p>Атрибуты помогают настраивать поведение и оформление элементов. Например, <code>href</code> задаёт адрес ссылки, а <code>disabled</code> делает поле неактивным.</p>
+
+</body>
+</html>
