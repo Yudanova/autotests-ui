@@ -1,8 +1,13 @@
-from pathlib import Path
-import re
-import uuid
 import pytest
 from playwright.sync_api import sync_playwright, expect,Page, Playwright
+
+@pytest.fixture
+def chromium_page(playwright: Playwright) -> Page:
+    browser = playwright.chromium.launch(headless=False)
+    yield browser.new_page()
+    browser.close()
+
+
 
 @pytest.fixture(scope="session") # runs once per test session
 def initialize_browser_state(playwright: Playwright): # Register a new user and save the browser state to a file. So you don’t have to repeat registration in every test
@@ -35,27 +40,6 @@ def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state="browser-state.json")
     page = context.new_page()
-    yield page  # This is where Pytest pauses the fixture and passes control to my test, test runs using the page object returned by yield.
+    yield context.new_page()  # This is where Pytest pauses the fixture and passes control to my test, test runs using the page object returned by yield.
 
     browser.close() # Once test finishes, Pytest resumes the fixture after the yield, which is where i clean up:
-
-
-# Имопртируем класс страницы, будем использовать его для аннотации типов
-# @pytest.fixture  # Declare fixture, scope function by default (what we need)
-# def chromium_page() -> Page:  # Аннотируем возвращаемое фикстурой значение
-#     # Ниже идет инициализация и открытие новой страницы
-#     with sync_playwright() as playwright:
-#         # Запускаем браузер
-#         browser = playwright.chromium.launch(headless=False)
-#
-#         # Передаем страницу для использования в тесте
-#         yield browser.new_page()
-#
-#         # Закрываем браузер после выполнения тестов
-#         browser.close()
-
-# @pytest.fixture
-# def chromium_page(playwright: Playwright) -> Page:
-#         browser = playwright.chromium.launch(headless=False)
-#         yield browser.new_page()
-#         browser.close()
