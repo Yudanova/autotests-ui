@@ -30,5 +30,6 @@ class TestReruns:
 
 
 # python -m pytest -k "test_reruns" -s -v
+# python -m pytest -k "test_rerun_with_condition" -s -v
 
 
