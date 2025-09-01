@@ -2,6 +2,7 @@ import pytest
 from playwright.sync_api import sync_playwright, expect, Page
 from pages.login_page import LoginPage
 
+
 @pytest.mark.regression
 @pytest.mark.authorization
 @pytest.mark.parametrize(
