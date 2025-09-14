@@ -1,5 +1,4 @@
 import pytest  # library pytest
-from playwright.sync_api import sync_playwright, expect, Page
 from pages.registration_page import RegistrationPage
 from pages.dashboard_page import DashboardPage
 
@@ -7,17 +6,21 @@ from pages.dashboard_page import DashboardPage
 
 @pytest.mark.regression  # Added regression marker
 @pytest.mark.registration  # Added registration marker
-def test_successful_registration(registration_page: RegistrationPage, dashboard_page: DashboardPage):  # Теперь используем фикстуру
+def test_successful_registration(registration_page: RegistrationPage, dashboard_page: DashboardPage):  # using fixtures
 
     registration_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
-    registration_page.fill_registration_form(
+# using component form
+    registration_page.registration_form.fill(
         email="user.name@gmail.com",
         username="username",
         password="password"
     )
     registration_page.click_registration_button()
-
+# user should be redirected to the dashboard page
     dashboard_page.check_visible_dashboard_title()
+
+
+
 
     # python -m pytest -s -v -k "test_successful_registration"
 
